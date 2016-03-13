@@ -4,10 +4,10 @@
     <title>Your awesome title</title>
     <description>Write an awesome description for your new site here. You can edit this line in _config.yml. It will appear in your document head meta (for Google search results) and in your feed.xml site description.
 </description>
-    <link>http://homepages.uc.edu/~youngev/blog/</link>
-    <atom:link href="http://homepages.uc.edu/~youngev/blog/feed.xml" rel="self" type="application/rss+xml" />
-    <pubDate>Sun, 13 Mar 2016 09:17:41 -0400</pubDate>
-    <lastBuildDate>Sun, 13 Mar 2016 09:17:41 -0400</lastBuildDate>
+    <link>http://homepages.uc.edu/</link>
+    <atom:link href="http://homepages.uc.edu/feed.xml" rel="self" type="application/rss+xml" />
+    <pubDate>Sun, 13 Mar 2016 09:35:09 -0400</pubDate>
+    <lastBuildDate>Sun, 13 Mar 2016 09:35:09 -0400</lastBuildDate>
     <generator>Jekyll v3.1.2</generator>
     
       <item>
@@ -28,8 +28,8 @@
 
 </description>
         <pubDate>Wed, 22 Oct 2014 07:14:08 -0400</pubDate>
-        <link>http://homepages.uc.edu/~youngev/blog/jekyll/update/2014/10/22/welcome-to-jekyll.html</link>
-        <guid isPermaLink="true">http://homepages.uc.edu/~youngev/blog/jekyll/update/2014/10/22/welcome-to-jekyll.html</guid>
+        <link>http://homepages.uc.edu/jekyll/update/2014/10/22/welcome-to-jekyll.html</link>
+        <guid isPermaLink="true">http://homepages.uc.edu/jekyll/update/2014/10/22/welcome-to-jekyll.html</guid>
         
         
         <category>jekyll</category>
