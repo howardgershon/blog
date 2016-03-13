@@ -1,0 +1,79 @@
+---
+layout: post
+title:  "Aaay-pee-eye"
+date:   2014-06-10 20:45:53
+categories: jekyll update
+---
+Here is a test of latex on [Jekyll][jekyll] 
+
+```html
+
+<center>
+
+<div class="latex">
+            \begin{aligned}
+            I[w] &= \iint_{\mathcal{D}} \left\{\dfrac{1}{2} \left[p(x, y) \left(\dfrac{\partial w}{\partial x} \right)^2 + q(x, y) \left(\dfrac{\partial w}{\partial y}\right)^2 - r(x, y)w^2\right] + f(x, y)w \right\}\,dx\,dy
+            \\ &+ \int_{\mathcal{S}_2} \left\{ -g_2(x, y) w + \dfrac{1}{2} g_1(x, y) w^2\right\}\,dS\\
+            \dfrac{\partial u^\delta}{\partial \xi_1} (\xi_{1i}, \xi_{2j}) &=\prod_{r=0}^{P_0} \sum_{p=0}^{P_1} \sum_{q=0}^{P_2} \left\{ u_{pqr} \left.\dfrac{\text{d}h_p(\xi_1)}{\text{d}\xi_1} \right|_{\xi_{1i}} \delta_{qrj} \right\} = \sum_{p=0}^{P_1} u_{pj} \left.\dfrac{\text{d}h_p(\xi_1)}{\text{d}\xi_1} \right|_{\xi_{1i}}
+
+
+            \end{aligned}\\
+</div> <br> <div class="latex">
+            \mathcal{L}_\infty = \left\{
+            \begin{bmatrix}
+            1 & 0 & 0 & 1\\
+            0 & 1 & \star & 0\\
+            1 & 0 & 0 & 1\\
+            1 & 2 & 3 & 4
+            \end{bmatrix}
+            \right\}^\top \times \begin{bmatrix} \lambda_1\\ \lambda_2\\ \vdots\\ \lambda_n \end{bmatrix} \in \mathbb{R}^n
+</div> </center>
+
+```
+
+{% highlight javascript linenos %}
+
+var makeMark = function(resp, lat, lon, rad){
+            //set color of circle
+            var colr = (resp == 'yes') ? '#0F0' : '#F00';
+            var rsvpOpt = {
+                strokeColor: colr,
+                strokeOpacity: 1,
+                strokeWeight: 1,
+                fillColor: colr,
+                fillOpacity: .5,
+                map : map,
+                center: new google.maps.LatLng(lat, lon),
+                radius: rad
+            }    
+
+            rsvpCirc = new google.maps.Circle(rsvpOpt);
+            //setTimeout(rsvpCirc.setMap(null), 1000);
+                
+        };
+        
+        var ws = new WebSocket('ws://stream.meetup.com/2/rsvps');
+        //ws.onmessage() = function(msg){makeMark(msg.data);};
+        ws.onmessage = function(msg){
+            //var results = document.getElementById('results');
+            var rsvp = JSON.parse(msg.data);
+            var name = rsvp.member['member_name'];
+            var group = rsvp.group['group_name'];
+            var city = rsvp.group['group_city'];
+            var state = rsvp.group['group_state'];
+            var lat = rsvp.group['group_lat'];
+            var lon = rsvp.group['group_lon'];
+            var resp = rsvp['response'];
+            var rad = 20000;
+            var rp = (resp == 'yes') ? 'will' : "won't";
+            //results.appendChild(document.createTextNode(" * " + name + " " + rp + " meetup with " + group + " in " + city + ', ' + state));
+            //results.appendChild(document.createElement('br'));
+            makeMark(resp, lat, lon, rad);
+        }; 
+
+{% endhighlight %}
+
+Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll's GitHub repo][jekyll-gh].
+
+[jekyll-gh]: https://github.com/jekyll/jekyll
+[jekyll]:    http://jekyllrb.com
